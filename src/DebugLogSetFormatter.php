@@ -22,7 +22,7 @@ class DebugLogSetFormatter implements LogInstanceModifying
      */
     public function __invoke(LoggerInterface $logger)
     {
-        $output = "[%datetime%] [%channel%.%level_name%] [PID# ".getmypid()."] [".Route::currentRouteAction()."]"."\n--> %message%\n";
+        $output = "[%datetime% " . config('app.timezone') . "] [%channel%.%level_name%] [PID# ".getmypid()."] [".Route::currentRouteAction()."]"."\n--> %message%\n";
 
         $formatter = new LineFormatter($output, null, true);
 
