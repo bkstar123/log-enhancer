@@ -24,7 +24,8 @@ class DebugLog
      */
     public function __construct()
     {
-        $this->customLogger = Log::channel('custom');
+        $log_enhancer_channel_name = env('BKSTAR123_LOG_ENHANCER_CHANNEL', 'bkstar123_log_enhancer');
+        $this->customLogger = Log::channel($log_enhancer_channel_name);
     }
 
     /**
