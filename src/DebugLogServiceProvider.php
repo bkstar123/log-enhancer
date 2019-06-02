@@ -24,7 +24,7 @@ class DebugLogServiceProvider extends ServiceProvider
     public function boot()
     {
         $log_enhancer_channel_name = env('BKSTAR123_LOG_ENHANCER_CHANNEL', 'bkstar123_log_enhancer');
-        $log_enhancer_log_file_name = env('BKSTAR123_LOG_ENHANCER_LOG_NAME', 'laravel-' . 
+        $log_enhancer_log_file_name = env('BKSTAR123_LOG_ENHANCER_LOG_NAME', 'laravel-' .
             $log_enhancer_channel_name . '.log');
 
         Config::set('logging.channels.' . $log_enhancer_channel_name, [
