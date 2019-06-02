@@ -17,14 +17,16 @@ You can customize the base name of log files and the rotation period by adding t
 
 It is not necessary but you can also change the custom channel name with BKSTAR123_LOG_ENHANCER_CHANNEL setting in .env file  
 
-### Log messages are formatted as following:  
-    [%datetime%] [%channel%.%level_name%] [PID# pid] [ControllerName/ActionName]
-    [%message%]
-
-### To write a log message, call to log() of DebugLog facade as follows:  
+### To write a log message, call to log() method of DebugLog facade as follows:  
     DebugLog::log($level = '', string $message = '', array $context = [])
 
 where $level can be debug|info|notice|warning|error|critical|emergency (default to 'debug' level)  
 
 ### Example:  
     DebugLog::log('info', "Hello {n}", ['n' => 'Antony Hoang'])
+
+### Log messages are formatted as follows:  
+    [%datetime%] [%channel%.%level_name%] [PID# pid] [ControllerName/ActionName]
+    [%message%]
+
+where %channel% is the value of APP_ENV setting in .env file, %level_name% is the value of $level  
