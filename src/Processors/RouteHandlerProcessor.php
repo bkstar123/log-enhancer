@@ -13,12 +13,12 @@ use Monolog\Processor\ProcessorInterface;
 
 class RouteHandlerProcessor implements ProcessorInterface
 {
-	/**
+    /**
      * @return array The processed records
      */
     public function __invoke(array $records)
     {
-    	$records['extra']['route_handler'] = Route::currentRouteAction();
-    	return $records;
+        $records['extra']['route_handler'] = Route::currentRouteAction();
+        return $records;
     }
 }

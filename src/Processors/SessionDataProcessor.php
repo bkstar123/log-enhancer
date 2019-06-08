@@ -12,12 +12,12 @@ use Monolog\Processor\ProcessorInterface;
 
 class SessionDataProcessor implements ProcessorInterface
 {
-	/**
+    /**
      * @return array The processed records
      */
     public function __invoke(array $records)
     {
-    	$records['extra']['session'] = session()->all();
-    	return $records;
+        $records['extra']['session'] = session()->all();
+        return $records;
     }
 }

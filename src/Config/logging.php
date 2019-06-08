@@ -9,6 +9,6 @@
 
 return [
     'bkstar123_log_enhancer' => [
-    	'log_to_browser_console' => env('BKSTAR123_LOG_ENHANCER_TO_BROWSER_CONSOLE', false),
+        'log_to_browser_console' => env('BKSTAR123_LOG_ENHANCER_TO_BROWSER_CONSOLE', false),
     ],
 ];
