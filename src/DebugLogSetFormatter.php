@@ -9,7 +9,6 @@ namespace Bkstar123\LogEnhancer;
 
 use Psr\Log\LoggerInterface;
 use Monolog\Formatter\LineFormatter;
-use Illuminate\Support\Facades\Route;
 use Bkstar123\LogEnhancer\Contracts\LogInstanceModifying;
 
 class DebugLogSetFormatter implements LogInstanceModifying
@@ -22,7 +21,13 @@ class DebugLogSetFormatter implements LogInstanceModifying
      */
     public function __invoke(LoggerInterface $logger)
     {
-        $output = "[%datetime% " . config('app.timezone') . "] [%channel%.%level_name%] [PID# ".getmypid()."] [".Route::currentRouteAction()."]"."\n--> %message%\n";
+        $output = "[%datetime% " . config('app.timezone') . "] [%channel%.%level_name%]: %message%\n";
+
+        $output .= "{'pid': '%extra.process_id%', 'client_ip': '%extra.ip%', 'url': '%extra.url%', 'http_method': '%extra.http_method%', 'route_hanlder': '%extra.route_handler%'";
+
+        $output .= ", \n'session': %extra.session%";
+
+        $output .= "}\n\n";
 
         $formatter = new LineFormatter($output, null, true);
 

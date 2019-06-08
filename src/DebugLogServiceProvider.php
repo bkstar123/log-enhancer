@@ -11,6 +11,7 @@ use Bkstar123\LogEnhancer\DebugLog;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
+use Bkstar123\LogEnhancer\DebugLogPushHandlers;
 use Bkstar123\LogEnhancer\DebugLogSetFormatter;
 use Bkstar123\LogEnhancer\DebugLogPushProcessors;
 
@@ -23,6 +24,8 @@ class DebugLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->mergeConfigFrom(__DIR__.'/Config/logging.php', 'logging');
+
         $log_enhancer_channel_name = env('BKSTAR123_LOG_ENHANCER_CHANNEL', 'bkstar123_log_enhancer');
         $log_enhancer_log_file_name = env('BKSTAR123_LOG_ENHANCER_LOG_NAME', 'laravel-' .
             $log_enhancer_channel_name . '.log');
@@ -30,6 +33,7 @@ class DebugLogServiceProvider extends ServiceProvider
         Config::set('logging.channels.' . $log_enhancer_channel_name, [
             'driver' => 'daily',
             'tap' => [
+                DebugLogPushHandlers::class,
                 DebugLogPushProcessors::class,
                 DebugLogSetFormatter::class,
             ],
