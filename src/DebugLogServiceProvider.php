@@ -9,11 +9,13 @@ namespace Bkstar123\LogEnhancer;
 
 use Bkstar123\LogEnhancer\DebugLog;
 use Illuminate\Support\Facades\App;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Bkstar123\LogEnhancer\DebugLogPushHandlers;
 use Bkstar123\LogEnhancer\DebugLogSetFormatter;
 use Bkstar123\LogEnhancer\DebugLogPushProcessors;
+use Bkstar123\LogEnhancer\Facades\DebugLog as DebugLogFacade;
 
 class DebugLogServiceProvider extends ServiceProvider
 {
@@ -53,5 +55,8 @@ class DebugLogServiceProvider extends ServiceProvider
         App::bind('debugLog', function ($app) {
             return new DebugLog;
         });
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('DebugLog', DebugLogFacade::class);
     }
 }
