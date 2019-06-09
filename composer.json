@@ -1,6 +1,14 @@
 {
     "name": "bkstar123/log-enhancer",
     "description": "This package enhances Laravel logging feature",
+    "keywords": [
+        "log",
+        "laravel",
+        "logging",
+        "enhancer",
+        "enhancing",
+        "log-enhancer"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
