@@ -39,12 +39,12 @@ DebugLog::log('info', "Hello {n}", ['n' => 'Antony Hoang'])
 **channel**: value of APP_ENV setting in .env file  
 **level_name**: value of $level  
 **message**: your custom log message  
-**pid**: the process ID of the PHP thread serving the current request
-**client_ip**: the IP address of the client browser
-**url**: request path
-**http_method**: HTTP verb of the current request e.g: GET, POST ...
-**route_hanlder**: the name of the request route handler i.e `ControllerName/ActionName`
-**session**: the session data associated with the request
+**pid**: the process ID of the PHP thread serving the current request  
+**client_ip**: the IP address of the client browser  
+**url**: request path  
+**http_method**: HTTP verb of the current request e.g: GET, POST ...  
+**route_hanlder**: the name of the request route handler i.e `ControllerName/ActionName`  
+**session**: the session data associated with the request  
 
 ### Sample log message:
     [2019-06-08 11:08:43 UTC] [local.INFO]: Hello Antony Hoang
