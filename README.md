@@ -2,7 +2,7 @@
 
 ## 1.Requirements  
 
-It is recommended to install this package with PHP version 7.1.3 & higher and Laravel Framework version 5.6.* & higher
+It is recommended to install this package with PHP version 7.1.3+ and Laravel Framework version 5.6+  
 
 ## 2.Installation  
     composer require bkstar123/log-enhancer 
