@@ -26,8 +26,6 @@ class DebugLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/Config/logging.php', 'logging');
-
         $log_enhancer_channel_name = env('BKSTAR123_LOG_ENHANCER_CHANNEL', 'bkstar123_log_enhancer');
         $log_enhancer_log_file_name = env('BKSTAR123_LOG_ENHANCER_LOG_NAME', 'laravel-' .
             $log_enhancer_channel_name . '.log');
@@ -58,5 +56,7 @@ class DebugLogServiceProvider extends ServiceProvider
 
         $loader = AliasLoader::getInstance();
         $loader->alias('DebugLog', DebugLogFacade::class);
+
+        $this->mergeConfigFrom(__DIR__.'/Config/logging.php', 'logging');
     }
 }
