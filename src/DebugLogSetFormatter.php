@@ -23,7 +23,7 @@ class DebugLogSetFormatter implements LogInstanceModifying
     {
         $output = "[%datetime% " . config('app.timezone') . "] [%channel%.%level_name%]: %message%\n";
 
-        $output .= "{'pid': '%extra.process_id%', 'client_ip': '%extra.ip%', 'url': '%extra.url%', 'http_method': '%extra.http_method%', 'route_hanlder': '%extra.route_handler%'";
+        $output .= "{'pid': '%extra.process_id%', 'client_ip': '%extra.ip%', 'url': '%extra.url%', 'http_method': '%extra.http_method%', 'route_handler': '%extra.route_handler%'";
 
         $output .= ", \n'session': %extra.session%";
 
