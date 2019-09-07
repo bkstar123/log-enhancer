@@ -48,5 +48,5 @@ DebugLog::log('info', "Hello {n}", ['n' => 'Antony Hoang'])
 
 ### Sample log message:
     [2019-06-08 11:08:43 UTC] [local.INFO]: Hello Antony Hoang
-    {'pid': '2873', 'client_ip': '192.168.1.35', 'url': '/', 'http_method': 'GET', 'route_hanlder': 'App\Http\Controllers\TestController@test', 
+    {'pid': '2873', 'client_ip': '192.168.1.35', 'url': '/', 'http_method': 'GET', 'route_handler': 'App\Http\Controllers\TestController@test', 
     'session': {"_token":"aSKrQ8xXETX5Mywt3EoLMqTG6SfOA6M4Vc5yGyDC","_previous":{"url":"http://kpacks.acme.com"},"_flash":{"old":[],"new":[]}}}
