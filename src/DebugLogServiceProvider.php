@@ -50,7 +50,7 @@ class DebugLogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        App::bind('debugLog', function ($app) {
+        App::singleton('debugLog', function ($app) {
             return new DebugLog;
         });
 
