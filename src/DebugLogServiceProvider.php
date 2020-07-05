@@ -26,9 +26,8 @@ class DebugLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $log_enhancer_channel_name = env('BKSTAR123_LOG_ENHANCER_CHANNEL', 'bkstar123_log_enhancer');
-        $log_enhancer_log_file_name = env('BKSTAR123_LOG_ENHANCER_LOG_NAME', 'laravel-' .
-            $log_enhancer_channel_name . '.log');
+        $log_enhancer_channel_name = config('logging.bkstar123_log_enhancer.channel_name');
+        $log_enhancer_log_file_name = config('logging.bkstar123_log_enhancer.log_filename');
 
         Config::set('logging.channels.' . $log_enhancer_channel_name, [
             'driver' => 'daily',
@@ -39,7 +38,7 @@ class DebugLogServiceProvider extends ServiceProvider
             ],
             'path' => storage_path('logs/'. $log_enhancer_log_file_name),
             'level' => 'debug',
-            'days' => env('BKSTAR123_LOG_ENHANCER_DAYS_FOR_ROTATION', 7),
+            'days' => config('logging.bkstar123_log_enhancer.days_for_rotation'),
         ]);
     }
 
